@@ -6,7 +6,7 @@ from tkinter import Toplevel
 class DecisionsDialog:
     def __init__(self, parent, classes):
         top = self.top = Toplevel(parent)
-        tree = ttk.Treeview(top)
+        tree = ttk.Treeview(top, selectmode=NONE)
 
         tree.heading('#0', text='Class name')
 
@@ -19,10 +19,10 @@ class DecisionsDialog:
 class FrequencyDialog:
     def __init__(self, parent, classes):
         top = self.top = Toplevel(parent)
-        tree = ttk.Treeview(top)
+        tree = ttk.Treeview(top, selectmode=NONE)
 
         tree.heading('#0', text='Class name')
-        tree["columns"] = ("frequency")
+        tree["columns"] = "frequency"
         tree.column("frequency", width=150)
         tree.heading("frequency", text="Number of object")
 
@@ -37,7 +37,7 @@ class FrequencyDialog:
 class NumericMinMaxDialog:
     def __init__(self, parent, attributes):
         top = self.top = Toplevel(parent)
-        tree = ttk.Treeview(top)
+        tree = ttk.Treeview(top, selectmode=NONE)
 
         tree.heading('#0', text='Attribute ID')
         tree["columns"] = ("Minimum", "Maximum")
@@ -55,12 +55,12 @@ class NumericMinMaxDialog:
 class UniqueAttributesDialog:
     def __init__(self, parent, attributes):
         top = self.top = Toplevel(parent)
-        tree = ttk.Treeview(top)
+        tree = ttk.Treeview(top, selectmode=NONE)
         scrollbar = Scrollbar(top)
         scrollbar.pack(side=RIGHT, fill=Y)
 
         tree.heading('#0', text='Attribute ID')
-        tree["columns"] = ("values")
+        tree["columns"] = "values"
         tree.column("values", width=200)
         tree.heading("values", text="Number of unique values")
         scrollbar.configure(command=tree.yview)
@@ -75,12 +75,12 @@ class UniqueAttributesDialog:
 class UniqueAttributeListDialog:
     def __init__(self, parent, attributes):
         top = self.top = Toplevel(parent)
-        tree = ttk.Treeview(top)
+        tree = ttk.Treeview(top, selectmode=NONE)
         scrollbar = Scrollbar(top)
         scrollbar.pack(side=RIGHT, fill=Y)
 
         tree.heading('#0', text='Attribute ID')
-        tree["columns"] = ("values")
+        tree["columns"] = "values"
         tree.column("values", width=150)
         tree.heading("values", text="Number of unique values")
         scrollbar.configure(command=tree.yview)
@@ -97,7 +97,7 @@ class UniqueAttributeListDialog:
 class StandardDeviationDialog:
     def __init__(self, parent, numeric_attributes, additional_info):
         top = self.top = Toplevel(parent)
-        tree = ttk.Treeview(top)
+        tree = ttk.Treeview(top, selectmode=NONE)
         scrollbar_y = Scrollbar(top)
         scrollbar_y.pack(side=RIGHT, fill=Y)
         scrollbar_x = Scrollbar(top, orient=HORIZONTAL)
@@ -126,12 +126,14 @@ class StandardDeviationDialog:
                 standard_deviations.append(info['Standard deviation'])
             tree.insert(1, index, text=decision_class, values=["{0:0.2f}".format(i) for i in standard_deviations])
 
-
-
-
-
         tree.pack()
 
-class prettyfloat(float):
-    def __repr__(self):
-        return "%0.2f" % self
+
+def center(win):
+    """Center dialogs"""
+    win.update_idletasks()
+    width = win.winfo_width()
+    height = win.winfo_height()
+    x = (win.winfo_screenwidth() // 2) - (width // 2)
+    y = (win.winfo_screenheight() // 2) - (height // 2)
+    win.geometry('{}x{}+{}+{}'.format(width, height, x, y))

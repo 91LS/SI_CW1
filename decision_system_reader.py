@@ -127,23 +127,29 @@ class MainFrame(Frame):
         return self.system_text_box.get() != '' and self.type_text_box.get() != ''
 
     def __show_decision_classes__(self):
-        my_dialogs.DecisionsDialog(self.parent, self.decision_system.get_decision_classes())
+        dialog = my_dialogs.DecisionsDialog(self.parent, self.decision_system.get_decision_classes())
+        my_dialogs.center(dialog.top)
 
     def __show_classes_frequency__(self):
-        my_dialogs.FrequencyDialog(self.parent, self.decision_system.get_decision_classes_with_frequency())
+        dialog = my_dialogs.FrequencyDialog(self.parent, self.decision_system.get_decision_classes_with_frequency())
+        my_dialogs.center(dialog.top)
 
     def __show_min_max_for_numeric__(self):
-        my_dialogs.NumericMinMaxDialog(self.parent, self.decision_system.get_numeric_attributes())
+        dialog = my_dialogs.NumericMinMaxDialog(self.parent, self.decision_system.get_numeric_attributes())
+        my_dialogs.center(dialog.top)
 
     def __show_unique_values__(self):
-        my_dialogs.UniqueAttributesDialog(self.parent, self.decision_system.get_attributes())
+        dialog = my_dialogs.UniqueAttributesDialog(self.parent, self.decision_system.get_attributes())
+        my_dialogs.center(dialog.top)
 
     def __show_unique_list__(self):
-        my_dialogs.UniqueAttributeListDialog(self.parent, self.decision_system.get_attributes())
+        dialog = my_dialogs.UniqueAttributeListDialog(self.parent, self.decision_system.get_attributes())
+        my_dialogs.center(dialog.top)
 
     def __show_standard_deviation__(self):
-        my_dialogs.StandardDeviationDialog(self.parent, self.decision_system.get_numeric_attributes(),
-                                           self.decision_system.get_additional_info())
+        dialog = my_dialogs.StandardDeviationDialog(self.parent, self.decision_system.get_numeric_attributes(),
+                                                    self.decision_system.get_additional_info())
+        my_dialogs.center(dialog.top)
 
     def __switch_buttons__(self, enable_buttons):
         current_state = NORMAL if enable_buttons else DISABLED  # @TODO: use enable/disable, not only to enable once

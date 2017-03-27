@@ -61,14 +61,14 @@ class MainFrame(Frame):
         classes_frequency_frame = Frame(self)  # 6th frame // Decision Classes With Frequency
         classes_frequency_frame.pack(fill=X)
 
-        self.classes_frequency_button = Button(classes_frequency_frame, text="Show Decision Classes With Frequency",
+        self.classes_frequency_button = Button(classes_frequency_frame, text="Show Decision Classes With Frequencies",
                                                state=DISABLED, command=self.__show_classes_frequency__)
         self.classes_frequency_button.pack(padx=5, pady=5, fill=X)
 
         min_max_frame = Frame(self)  # 7th frame // Minimum and Maximum Values for Numeric
         min_max_frame.pack(fill=X)
 
-        self.min_max_button = Button(min_max_frame, text="Show Minimum And Maximum Values For Numeric Types",
+        self.min_max_button = Button(min_max_frame, text="Show Minimum And Maximum Values For Numeric Attributes",
                                      state=DISABLED, command=self.__show_min_max_for_numeric__)
         self.min_max_button.pack(padx=5, pady=5, fill=X)
 
@@ -89,8 +89,8 @@ class MainFrame(Frame):
         standard_deviation_frame = Frame(self)  # 10th frame // Standard Deviation
         standard_deviation_frame.pack(fill=X)
 
-        self.standard_deviation_button = Button(standard_deviation_frame, text="Show Standard Deviation",
-                                                state=DISABLED, command=self.__show_standard_deviation__)
+        self.standard_deviation_button = Button(standard_deviation_frame, command=self.__show_standard_deviation__,
+                                                text="Show Standard Deviation For Numeric Attributes", state=DISABLED)
         self.standard_deviation_button.pack(padx=5, pady=5, fill=X)
 
     def __get_system_filename__(self):

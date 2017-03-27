@@ -1,0 +1,16 @@
+.idea/inspectionProfiles/profiles_settings.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/SI_CW1.iml
+.idea/workspace.xml
+__pycache__/decision_system.cpython-36.pyc
+__pycache__/my_dialogs.cpython-36.pyc
+__pycache__/system_tools.cpython-36.pyc
+__pycache__/universal_tools.cpython-36.pyc
+australian.txt
+australian-type.txt
+new_si.py
+nursery.txt
+nursery-type.txt
+SI.py
+test.py
